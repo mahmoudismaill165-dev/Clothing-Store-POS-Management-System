@@ -1,0 +1,6 @@
+{
+  "name": "Clothing Store POS & Management System",
+  "description": "An offline-first, highly responsive clothing store management and POS system featuring inventory control, variant tracking (sizes/colors), barcode simulation, supplier and customer CRM, sales reports, and user role management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

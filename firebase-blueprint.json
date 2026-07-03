@@ -1,0 +1,178 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "System user/employee",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "username": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "cashier"] },
+        "pin": { "type": "string" },
+        "active": { "type": "boolean" }
+      },
+      "required": ["id", "name", "username", "role", "pin", "active"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Clothing product with variants",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "cost": { "type": "number" },
+        "sku": { "type": "string" },
+        "variants": { "type": "array" }
+      },
+      "required": ["id", "name", "category", "price", "cost", "variants"]
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "Store customer",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "points": { "type": "number" },
+        "email": { "type": "string" }
+      },
+      "required": ["id", "name", "phone", "points"]
+    },
+    "Supplier": {
+      "title": "Supplier",
+      "description": "Product supplier",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "contact": { "type": "string" },
+        "phone": { "type": "string" },
+        "company": { "type": "string" }
+      },
+      "required": ["id", "name", "phone"]
+    },
+    "Sale": {
+      "title": "Sale",
+      "description": "Completed transaction",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string" },
+        "items": { "type": "array" },
+        "total": { "type": "number" },
+        "discount": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "cashierId": { "type": "string" },
+        "customerId": { "type": "string" }
+      },
+      "required": ["id", "date", "items", "total", "paymentMethod", "cashierId"]
+    },
+    "Expense": {
+      "title": "Expense",
+      "description": "Store expense",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "amount": { "type": "number" },
+        "category": { "type": "string" },
+        "date": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "title", "amount", "category", "date"]
+    },
+    "StockHistory": {
+      "title": "StockHistory",
+      "description": "Stock change history logs",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "productId": { "type": "string" },
+        "productName": { "type": "string" },
+        "variantId": { "type": "string" },
+        "variantName": { "type": "string" },
+        "type": { "type": "string", "enum": ["in", "out", "adjustment", "sale", "return"] },
+        "quantity": { "type": "number" },
+        "oldStock": { "type": "number" },
+        "newStock": { "type": "number" },
+        "date": { "type": "string" },
+        "user": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "productId", "productName", "variantId", "variantName", "type", "quantity", "oldStock", "newStock", "date", "user"]
+    },
+    "AppNotification": {
+      "title": "AppNotification",
+      "description": "System notification",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "isRead": { "type": "boolean" },
+        "date": { "type": "string" }
+      },
+      "required": ["id", "title", "message", "type", "isRead", "date"]
+    },
+    "StoreSettings": {
+      "title": "StoreSettings",
+      "description": "Store application configurations",
+      "type": "object",
+      "properties": {
+        "storeName": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "taxRate": { "type": "number" },
+        "currency": { "type": "string" },
+        "language": { "type": "string" },
+        "lowStockAlert": { "type": "number" },
+        "pointsValue": { "type": "number" },
+        "pointsRequirement": { "type": "number" }
+      },
+      "required": ["storeName", "phone", "address", "taxRate", "currency", "language", "lowStockAlert"]
+    }
+  },
+  "firestore": {
+    "/cloth_pos_users/{userId}": {
+      "schema": "User",
+      "description": "List of system users"
+    },
+    "/cloth_pos_products/{productId}": {
+      "schema": "Product",
+      "description": "List of clothing items"
+    },
+    "/cloth_pos_customers/{customerId}": {
+      "schema": "Customer",
+      "description": "List of registered customers"
+    },
+    "/cloth_pos_suppliers/{supplierId}": {
+      "schema": "Supplier",
+      "description": "List of supplier records"
+    },
+    "/cloth_pos_sales/{saleId}": {
+      "schema": "Sale",
+      "description": "Store sales invoices"
+    },
+    "/cloth_pos_expenses/{expenseId}": {
+      "schema": "Expense",
+      "description": "Business expenses log"
+    },
+    "/cloth_pos_history/{historyId}": {
+      "schema": "StockHistory",
+      "description": "Stock changes log"
+    },
+    "/cloth_pos_notifications/{notificationId}": {
+      "schema": "AppNotification",
+      "description": "System notifications log"
+    },
+    "/cloth_pos_config/settings": {
+      "schema": "StoreSettings",
+      "description": "Global store settings configuration"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Background with rounded corners -->
+  <rect width="512" height="512" rx="112" fill="url(#bg-grad)" />
+  
+  <!-- Inner circular glow decoration -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="4" />
+  
+  <!-- Outer glowing white accent -->
+  <rect x="40" y="40" width="432" height="432" rx="88" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="6" />
+
+  <!-- Clothing Hanger and Tag Graphics -->
+  <g transform="translate(116, 126)" filter="url(#glow)">
+    <!-- Hanger Hook -->
+    <path d="M140 100 C 140 50, 180 30, 200 60 C 210 75, 195 90, 185 85 C 175 80, 165 70, 155 100" fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" />
+    
+    <!-- Hanger Body -->
+    <path d="M20 180 L 140 100 L 260 180 Z" fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linejoin="round" stroke-linecap="round" />
+    
+    <!-- Shopping bag/tag concept inside -->
+    <rect x="90" y="160" width="100" height="130" rx="16" fill="#FFFFFF" />
+    <!-- Tag String hole -->
+    <circle cx="140" cy="185" r="10" fill="url(#bg-grad)" />
+    <!-- Mini hanger design details -->
+    <path d="M110 220 L 170 220" stroke="url(#bg-grad)" stroke-width="8" stroke-linecap="round" />
+    <path d="M110 245 L 150 245" stroke="url(#bg-grad)" stroke-width="8" stroke-linecap="round" />
+  </g>
+</svg>
