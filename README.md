@@ -1,4 +1,4 @@
-# Al-Saqr Apparel POS & Store Management System
+# Saqr Apparel POS & Store Management System
 
 A highly professional, full-stack Point of Sale (POS) and inventory management system custom-built for apparel and clothing retail/wholesale stores. Engineered with a focus on real-time multi-device cloud synchronization, offline-first reliability, high visual contrast design, and multi-currency billing.
 
